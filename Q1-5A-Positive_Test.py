@@ -9,7 +9,7 @@ Date: 27/09/2025
 
 ------------------------------------------------------------------
 פקודת הרצה:
-pytest Positive_Test.py --headed --browser chromium --slowmo 1000
+pytest Q1-5A-Positive_Test.py --headed --browser chromium --slowmo 1000
 ------------------------------------------------------------------
 
 """
