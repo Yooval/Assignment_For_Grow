@@ -1,5 +1,18 @@
 """
-Q2A - API tests.
+Q2-1-API_Test.py - בדיקות למערכת תשלום
+Author: Yuval Yosef
+Date: 29/09/2025
+
+מטרת הקובץ: בדיקת API של createPaymentProcess במערכת משולם.
+הבדיקות כוללות: בקשה תקינה, שדה חובה חסר, וערך לא תקין (sum=0).
+
+------------------------------------------------------------------
+פקודת הרצה:
+python Q2-1-API_Test.py
+
+לצפייה בתוצאות ב-GitHub Actions:
+Actions → Run Tests for Q2A → test → Run API Tests
+------------------------------------------------------------------
 """
 import requests
 
