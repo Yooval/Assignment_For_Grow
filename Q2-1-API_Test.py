@@ -1,5 +1,5 @@
 """
-Q2A - API tests
+Q2A - API tests.
 """
 import requests
 
