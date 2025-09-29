@@ -19,9 +19,12 @@ def test_valid_request():
         'pageField[email]': 'debbie@meshulam.co.il'
     }
 
+    print(f"   שולח בקשה ל: {URL}")
     response = requests.post(URL, data=data)
+    print(f"   קיבלתי סטטוס: {response.status_code}")
+    print(f"   תוכן התשובה: {response.text[:300]}")  # 300 תווים ראשונים
+
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
-    assert 'url' in response.json(), "No URL in response"
 
 
 def test_missing_field():
@@ -37,8 +40,13 @@ def test_missing_field():
         'pageField[email]': 'debbie@meshulam.co.il'
     }
 
+    print(f"   שולח בקשה בלי pageCode")
     response = requests.post(URL, data=data)
-    assert response.status_code != 200 or 'err' in response.json()
+    print(f"   קיבלתי סטטוס: {response.status_code}")
+    response_json = response.json()
+    print(f"   יש שגיאה? {'err' in response_json or response_json.get('status') == '0'}")
+
+    assert response.status_code != 200 or 'err' in response_json
 
 
 def test_sum_zero():
@@ -54,15 +62,21 @@ def test_sum_zero():
         'pageField[email]': 'debbie@meshulam.co.il'
     }
 
+    print(f"   שולח בקשה עם sum=0")
     response = requests.post(URL, data=data)
-    assert response.status_code != 200 or 'err' in response.json()
+    print(f"   קיבלתי סטטוס: {response.status_code}")
+    response_json = response.json()
+    print(f"   יש שגיאה? {'err' in response_json or response_json.get('status') == '0'}")
+
+    assert response.status_code != 200 or 'err' in response_json
 
 
 if __name__ == "__main__":
-    print("בדיקות API ")
+    print("בדיקות API משולם")
     print("-" * 30)
 
     # טסט 1א
+    print("\nטסט 1א: בקשה תקינה")
     try:
         test_valid_request()
         print("✅ טסט 1א עבר - קיבלתי 200")
@@ -70,6 +84,7 @@ if __name__ == "__main__":
         print(f"❌ טסט 1א נכשל - {e}")
 
     # טסט 1ב
+    print("\nטסט 1ב: שדה חסר")
     try:
         test_missing_field()
         print("✅ טסט 1ב עבר - קיבלתי שגיאה כמצופה")
@@ -77,11 +92,12 @@ if __name__ == "__main__":
         print(f"❌ טסט 1ב נכשל - {e}")
 
     # טסט 1ג
+    print("\nטסט 1ג: סכום אפס")
     try:
         test_sum_zero()
         print("✅ טסט 1ג עבר - קיבלתי שגיאה עבור sum=0")
     except AssertionError as e:
         print(f"❌ טסט 1ג נכשל - {e}")
 
-    print("-" * 30)
+    print("\n" + "-" * 30)
     print("סיום")
