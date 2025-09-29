@@ -59,7 +59,7 @@ def test_sum_zero():
 
 
 if __name__ == "__main__":    # תוקן! עם קו תחתון כפול
-    print("בדיקות API משולם")
+    print("בדיקות API ")
     print("-" * 30)
 
     # טסט 1א
