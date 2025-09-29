@@ -58,7 +58,7 @@ def test_sum_zero():
     assert response.status_code != 200 or 'err' in response.json()
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":    # תוקן! עם קו תחתון כפול
     print("בדיקות API משולם")
     print("-" * 30)
 
