@@ -1,5 +1,5 @@
 """
-בדיקות API
+בדיקות API משולם
 """
 import requests
 
@@ -56,3 +56,32 @@ def test_sum_zero():
 
     response = requests.post(URL, data=data)
     assert response.status_code != 200 or 'err' in response.json()
+
+
+if __name__ == "__main__":
+    print("בדיקות API משולם")
+    print("-" * 30)
+
+    # טסט 1א
+    try:
+        test_valid_request()
+        print("✅ טסט 1א עבר - קיבלתי 200")
+    except AssertionError as e:
+        print(f"❌ טסט 1א נכשל - {e}")
+
+    # טסט 1ב
+    try:
+        test_missing_field()
+        print("✅ טסט 1ב עבר - קיבלתי שגיאה כמצופה")
+    except AssertionError as e:
+        print(f"❌ טסט 1ב נכשל - {e}")
+
+    # טסט 1ג
+    try:
+        test_sum_zero()
+        print("✅ טסט 1ג עבר - קיבלתי שגיאה עבור sum=0")
+    except AssertionError as e:
+        print(f"❌ טסט 1ג נכשל - {e}")
+
+    print("-" * 30)
+    print("סיום")
