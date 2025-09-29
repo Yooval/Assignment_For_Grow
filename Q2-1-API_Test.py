@@ -12,6 +12,8 @@ python Q2-1-API_Test.py
 
 לצפייה בתוצאות ב-GitHub Actions:
 Actions → Run Tests for Q2A → test → Run API Tests
+
+YAML File - .github\workflows\tests.yml
 ------------------------------------------------------------------
 """
 import requests
