@@ -1,4 +1,4 @@
-# Assignment For Grow - Testing Suite
+# Assignment For Grow
 
 ## Overview
 Automated testing project for a payment system.  
