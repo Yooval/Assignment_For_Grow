@@ -1,5 +1,5 @@
 """
-בדיקות API משולם
+Q2A - API tests
 """
 import requests
 
@@ -58,7 +58,7 @@ def test_sum_zero():
     assert response.status_code != 200 or 'err' in response.json()
 
 
-if __name__ == "__main__":    # תוקן! עם קו תחתון כפול
+if __name__ == "__main__":
     print("בדיקות API ")
     print("-" * 30)
 
